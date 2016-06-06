@@ -8,7 +8,7 @@ var hashHistory = router.hashHistory;
 
 var routes = (
 	<Router history={hashHistory}>
-		<Route path='/contacts' component={ContactListContainer} />
+		<Route path="/contacts" component={ContactListContainer} />
 	</Router>
 );
 
@@ -31,6 +31,7 @@ var CONTACTS = {
 };
 
 var Contact = function(props) {
+	console.log('Contact');
 	return (
 		<div>
 			<strong>
@@ -43,6 +44,7 @@ var Contact = function(props) {
 };
 
 var ContactList = function(props) {
+	console.log('ContactList');
 	var contacts = Object.keys(props.contacts).map(function(contactId, index) {
 		var contact = props.contacts[contactId];
 		return (
@@ -54,6 +56,7 @@ var ContactList = function(props) {
 };
 
 var ContactListContainer = function() {
+	console.log('ContactListContainer')
 	return <ContactList contacts={CONTACTS} />;
 };
 

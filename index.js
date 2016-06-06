@@ -79,6 +79,7 @@
 	};
 	
 	var Contact = function Contact(props) {
+		console.log('Contact');
 		return React.createElement(
 			'div',
 			null,
@@ -93,6 +94,7 @@
 	};
 	
 	var ContactList = function ContactList(props) {
+		console.log('ContactList');
 		var contacts = Object.keys(props.contacts).map(function (contactId, index) {
 			var contact = props.contacts[contactId];
 			return React.createElement(
@@ -104,11 +106,12 @@
 	};
 	
 	var ContactListContainer = function ContactListContainer() {
+		console.log('ContactListContainer');
 		return React.createElement(ContactList, { contacts: CONTACTS });
 	};
 	
-	document.addEventListener('DOMContentLoaded', function () {
-		ReactDOM.render(routes, document.getElementById('app'));
+	document.addEventListener("DOMContentLoaded", function () {
+		ReactDOM.render(routes, document.getElementById("app"));
 	});
 
 /***/ },
