@@ -6,12 +6,6 @@ var Router = router.Router;
 var Route = router.Route;
 var hashHistory = router.hashHistory;
 
-var routes = (
-	<Router history={hashHistory}>
-		<Route path="/contacts" component={ContactListContainer} />
-	</Router>
-);
-
 var CONTACTS = {
 	0: {
 		id: 0,
@@ -53,6 +47,11 @@ var ContactList = function(props) {
 			</li>
 		);
 	});
+	return (
+		<ul>
+			{contacts}
+		</ul>
+	);
 };
 
 var ContactListContainer = function() {
@@ -60,6 +59,13 @@ var ContactListContainer = function() {
 	return <ContactList contacts={CONTACTS} />;
 };
 
+var routes = (
+	<Router history={hashHistory}>
+		<Route path="/contacts" component={ContactListContainer} />
+	</Router>
+);
+
 document.addEventListener('DOMContentLoaded', function() {
+	console.log('DOMContentLoaded');
 	ReactDOM.render(routes, document.getElementById('app'));
 });

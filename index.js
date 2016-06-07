@@ -95,12 +95,17 @@
 	
 	var ContactList = function ContactList(props) {
 		console.log('ContactList');
-		var contacts = Object.keys(props.contacts).map(function (contactId, index) {
-			var contact = props.contacts[contactId];
+		var contacts = Object.keys(props.contacts).map(function (contact, index) {
+			console.log(this.props);
+			var id = contact.id;
+			var name = contact.name;
+			var phoneNumber = contact.phoneNumber;
+	
+	
 			return React.createElement(
 				'li',
 				{ key: index },
-				React.createElement(Contact, { id: contact.id, name: contact.name, phoneNumber: contact.phoneNumber })
+				React.createElement(Contact, { id: id, name: name, phoneNumber: phoneNumber })
 			);
 		});
 	};
@@ -110,8 +115,9 @@
 		return React.createElement(ContactList, { contacts: CONTACTS });
 	};
 	
-	document.addEventListener("DOMContentLoaded", function () {
-		ReactDOM.render(routes, document.getElementById("app"));
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('DOMContentLoaded');
+		ReactDOM.render(routes, document.getElementById('app'));
 	});
 
 /***/ },
